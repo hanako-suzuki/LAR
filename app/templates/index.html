@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Webcam Video Stream</title>
+    </head>
+    <body>
+        <h1>Webcam Video Stream</h1>
+        <p id="my-text">Hello, world!</p>
+        <button onclick="updateText()">Update Text</button>
+        <script>
+            function updateText() {
+              fetch("/update_variable")
+                .then(response => response.text())
+                .then(data => {
+                  document.getElementById("my-text").textContent = data;
+                });
+            }
+          </script>
+        <img src="{{ url_for('video_feed') }}">
+    </body>
+</html>
